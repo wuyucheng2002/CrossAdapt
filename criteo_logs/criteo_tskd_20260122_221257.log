@@ -1,0 +1,159 @@
+2026-01-22 22:12:57,319 - INFO - Using device: cuda
+2026-01-22 22:12:57,336 - INFO - GPU: NVIDIA GeForce RTX 4070 Ti SUPER
+2026-01-22 22:12:57,336 - INFO - GPU Memory: 15.6 GB
+2026-01-22 22:13:08,703 - INFO - Vocabulary sizes: {'C1': 1458, 'C2': 555, 'C3': 193948, 'C4': 138800, 'C5': 306, 'C6': 18, 'C7': 11970, 'C8': 634, 'C9': 4, 'C10': 42646, 'C11': 5178, 'C12': 192772, 'C13': 3175, 'C14': 27, 'C15': 11422, 'C16': 181074, 'C17': 11, 'C18': 4654, 'C19': 2031, 'C20': 4, 'C21': 189656, 'C22': 17, 'C23': 16, 'C24': 59696, 'C25': 85, 'C26': 45570}
+2026-01-22 22:13:08,703 - INFO - Data shapes - Hist: 18336246, Offline: 18336246, Online: 4584061, Test: 4584064
+2026-01-22 22:13:08,703 - INFO - ================================================================================
+2026-01-22 22:13:08,703 - INFO - COMMAND LINE ARGUMENTS
+2026-01-22 22:13:08,703 - INFO - ================================================================================
+2026-01-22 22:13:08,703 - INFO - mode: tskd
+2026-01-22 22:13:08,703 - INFO - dataset: criteo
+2026-01-22 22:13:08,703 - INFO - num_runs: 5
+2026-01-22 22:13:08,703 - INFO - stage2_update_mode: both
+2026-01-22 22:13:08,703 - INFO - log_progress_100: False
+2026-01-22 22:13:08,703 - INFO - num_workers: 16
+2026-01-22 22:13:08,703 - INFO - batch_size: 4096
+2026-01-22 22:13:08,703 - INFO - pin_memory: False
+2026-01-22 22:13:08,703 - INFO - prefetch_factor: 2
+2026-01-22 22:13:08,703 - INFO - persistent_workers: False
+2026-01-22 22:13:08,703 - INFO - full_in_memory: True
+2026-01-22 22:13:08,703 - INFO - hist: True
+2026-01-22 22:13:08,703 - INFO - offline: True
+2026-01-22 22:13:08,703 - INFO - online: True
+2026-01-22 22:13:08,703 - INFO - update_teacher_models: True
+2026-01-22 22:13:08,703 - INFO - teacher_arch: mlp
+2026-01-22 22:13:08,703 - INFO - teacher_embedding_dim: 8
+2026-01-22 22:13:08,703 - INFO - hidden_dims_teacher: [64, 32, 4]
+2026-01-22 22:13:08,703 - INFO - student_arch: fibi
+2026-01-22 22:13:08,703 - INFO - student_embedding_dim: 16
+2026-01-22 22:13:08,703 - INFO - hidden_dims_student: [256, 128, 16]
+2026-01-22 22:13:08,703 - INFO - lr_sparse: 0.1
+2026-01-22 22:13:08,703 - INFO - lr_dense: 0.001
+2026-01-22 22:13:08,703 - INFO - force_retrain_s1: True
+2026-01-22 22:13:08,703 - INFO - s1_dense_epochs: 1
+2026-01-22 22:13:08,703 - INFO - s1_joint_epochs: 1
+2026-01-22 22:13:08,703 - INFO - s1c_sparse_l2: 0
+2026-01-22 22:13:08,703 - INFO - s1a_method: orthomap
+2026-01-22 22:13:08,703 - INFO - alpha_1b: 0.7
+2026-01-22 22:13:08,703 - INFO - alpha_1c: 0.7
+2026-01-22 22:13:08,703 - INFO - sample_selection: biased_sample
+2026-01-22 22:13:08,703 - INFO - sample_ratio: 0.1
+2026-01-22 22:13:08,703 - INFO - target_pos_rate: 0.5
+2026-01-22 22:13:08,703 - INFO - replay: True
+2026-01-22 22:13:08,703 - INFO - alpha_2: 0.7
+2026-01-22 22:13:08,703 - INFO - teacher_update_freq: 10
+2026-01-22 22:13:08,703 - INFO - replay_ratio: 0.1
+2026-01-22 22:13:08,703 - INFO - temperature: 4.0
+2026-01-22 22:13:08,703 - INFO - use_hint_kd: False
+2026-01-22 22:13:08,703 - INFO - hint_lambda: 1.0
+2026-01-22 22:13:08,703 - INFO - use_rkd: False
+2026-01-22 22:13:08,703 - INFO - rkd_lambda: 1.0
+2026-01-22 22:13:08,703 - INFO - rkd_w_dist: 25.0
+2026-01-22 22:13:08,703 - INFO - rkd_w_angle: 50.0
+2026-01-22 22:13:08,703 - INFO - rkd_max_pairs: 2048
+2026-01-22 22:13:08,704 - INFO - rkd_max_triplets: 2048
+2026-01-22 22:13:08,704 - INFO - skip_s1a: False
+2026-01-22 22:13:08,704 - INFO - skip_s1b: False
+2026-01-22 22:13:08,704 - INFO - skip_s1c: False
+2026-01-22 22:13:08,704 - INFO - skip_s2: False
+2026-01-22 22:13:08,704 - INFO - num_cross_layers: 3
+2026-01-22 22:13:08,704 - INFO - num_cin_layers: 3
+2026-01-22 22:13:08,704 - INFO - num_attention_layers: 3
+2026-01-22 22:13:08,704 - INFO - num_attention_heads: 2
+2026-01-22 22:13:08,704 - INFO - max_memory_gb: 28
+2026-01-22 22:13:08,704 - INFO - max_cpu_time_hour: 3
+2026-01-22 22:13:08,704 - INFO - ================================================================================
+2026-01-22 22:13:08,704 - INFO - --- Running in TSKD FRAMEWORK MODE ---
+2026-01-22 22:13:08,704 - INFO - --- Preparing Historical Teacher Models ---
+2026-01-22 22:13:08,704 - INFO - Creating test_loader loader with 16 workers
+2026-01-22 22:13:09,845 - INFO - ============================== STARTING RUN 1/5 ==============================
+2026-01-22 22:13:10,053 - INFO - Loaded existing teacher model from: criteo_saved_models/teacher_model_mlp_emb8_hidden64_32_4_0.pth
+2026-01-22 22:13:10,053 - INFO - Found optimizer states in checkpoint, will use continuous training strategy
+2026-01-22 22:13:11,392 - INFO - --- Running Stage 1 ---
+2026-01-22 22:13:11,392 - INFO - --- Preparing Representative Sample Set (D_rep) for Stage 1 ---
+2026-01-22 22:13:11,392 - INFO - Creating offline_loader loader with 16 workers
+2026-01-22 22:13:23,348 - INFO - Created dynamic sampling rep_loader with method: biased_sample
+2026-01-22 22:14:32,720 - INFO - Run 1 | Student (after S1) - AUC: 79.86, LogLoss: 0.4586, TrainTime(s): 47.2
+2026-01-22 22:14:32,720 - INFO - --- Running Stage 2: Live Co-evolutionary Alignment ---
+2026-01-22 22:14:32,720 - INFO - 创建ReplayDataset，每次采样409个样本
+2026-01-22 22:14:32,720 - INFO - Creating online_loader loader with 16 workers
+2026-01-22 22:14:33,409 - INFO - Stage 2总步数: 1120
+2026-01-22 22:14:33,409 - INFO - 使用ReplayDataset，每个step抽取409个样本
+2026-01-22 22:16:01,185 - INFO - Run 1 | Student (after S2) - AUC: 80.26, LogLoss: 0.4513, TrainTime(s): 65.9
+2026-01-22 22:16:01,330 - INFO - [MEM] after TSKD run 1 | RSS: 14.23 GB, GPU Used: 0.84 GB / 15.58 GB
+2026-01-22 22:16:01,331 - INFO - ============================== STARTING RUN 2/5 ==============================
+2026-01-22 22:16:02,280 - INFO - Loaded existing teacher model from: criteo_saved_models/teacher_model_mlp_emb8_hidden64_32_4_1.pth
+2026-01-22 22:16:02,281 - INFO - Found optimizer states in checkpoint, will use continuous training strategy
+2026-01-22 22:16:02,372 - INFO - --- Running Stage 1 ---
+2026-01-22 22:16:02,372 - INFO - --- Preparing Representative Sample Set (D_rep) for Stage 1 ---
+2026-01-22 22:16:02,372 - INFO - Creating offline_loader loader with 16 workers
+2026-01-22 22:16:13,397 - INFO - Created dynamic sampling rep_loader with method: biased_sample
+2026-01-22 22:17:21,985 - INFO - Run 2 | Student (after S1) - AUC: 79.88, LogLoss: 0.4601, TrainTime(s): 46.3
+2026-01-22 22:17:21,985 - INFO - --- Running Stage 2: Live Co-evolutionary Alignment ---
+2026-01-22 22:17:21,985 - INFO - 创建ReplayDataset，每次采样409个样本
+2026-01-22 22:17:21,985 - INFO - Creating online_loader loader with 16 workers
+2026-01-22 22:17:22,680 - INFO - Stage 2总步数: 1120
+2026-01-22 22:17:22,680 - INFO - 使用ReplayDataset，每个step抽取409个样本
+2026-01-22 22:18:50,752 - INFO - Run 2 | Student (after S2) - AUC: 80.27, LogLoss: 0.4510, TrainTime(s): 65.8
+2026-01-22 22:18:50,897 - INFO - [MEM] after TSKD run 2 | RSS: 14.34 GB, GPU Used: 1.13 GB / 15.58 GB
+2026-01-22 22:18:50,898 - INFO - ============================== STARTING RUN 3/5 ==============================
+2026-01-22 22:18:51,924 - INFO - Loaded existing teacher model from: criteo_saved_models/teacher_model_mlp_emb8_hidden64_32_4_2.pth
+2026-01-22 22:18:51,924 - INFO - Found optimizer states in checkpoint, will use continuous training strategy
+2026-01-22 22:18:52,011 - INFO - --- Running Stage 1 ---
+2026-01-22 22:18:52,012 - INFO - --- Preparing Representative Sample Set (D_rep) for Stage 1 ---
+2026-01-22 22:18:52,012 - INFO - Creating offline_loader loader with 16 workers
+2026-01-22 22:19:02,385 - INFO - Created dynamic sampling rep_loader with method: biased_sample
+2026-01-22 22:20:11,533 - INFO - Run 3 | Student (after S1) - AUC: 79.84, LogLoss: 0.4612, TrainTime(s): 46.6
+2026-01-22 22:20:11,533 - INFO - --- Running Stage 2: Live Co-evolutionary Alignment ---
+2026-01-22 22:20:11,533 - INFO - 创建ReplayDataset，每次采样409个样本
+2026-01-22 22:20:11,533 - INFO - Creating online_loader loader with 16 workers
+2026-01-22 22:20:12,226 - INFO - Stage 2总步数: 1120
+2026-01-22 22:20:12,226 - INFO - 使用ReplayDataset，每个step抽取409个样本
+2026-01-22 22:21:41,180 - INFO - Run 3 | Student (after S2) - AUC: 80.26, LogLoss: 0.4521, TrainTime(s): 66.4
+2026-01-22 22:21:41,325 - INFO - [MEM] after TSKD run 3 | RSS: 14.38 GB, GPU Used: 0.99 GB / 15.58 GB
+2026-01-22 22:21:41,325 - INFO - ============================== STARTING RUN 4/5 ==============================
+2026-01-22 22:21:42,431 - INFO - Loaded existing teacher model from: criteo_saved_models/teacher_model_mlp_emb8_hidden64_32_4_3.pth
+2026-01-22 22:21:42,432 - INFO - Found optimizer states in checkpoint, will use continuous training strategy
+2026-01-22 22:21:42,511 - INFO - --- Running Stage 1 ---
+2026-01-22 22:21:42,512 - INFO - --- Preparing Representative Sample Set (D_rep) for Stage 1 ---
+2026-01-22 22:21:42,512 - INFO - Creating offline_loader loader with 16 workers
+2026-01-22 22:21:52,205 - INFO - Created dynamic sampling rep_loader with method: biased_sample
+2026-01-22 22:23:00,963 - INFO - Run 4 | Student (after S1) - AUC: 79.89, LogLoss: 0.4602, TrainTime(s): 46.2
+2026-01-22 22:23:00,964 - INFO - --- Running Stage 2: Live Co-evolutionary Alignment ---
+2026-01-22 22:23:00,964 - INFO - 创建ReplayDataset，每次采样409个样本
+2026-01-22 22:23:00,964 - INFO - Creating online_loader loader with 16 workers
+2026-01-22 22:23:01,652 - INFO - Stage 2总步数: 1120
+2026-01-22 22:23:01,653 - INFO - 使用ReplayDataset，每个step抽取409个样本
+2026-01-22 22:24:30,179 - INFO - Run 4 | Student (after S2) - AUC: 80.28, LogLoss: 0.4513, TrainTime(s): 66.1
+2026-01-22 22:24:30,329 - INFO - [MEM] after TSKD run 4 | RSS: 14.41 GB, GPU Used: 1.13 GB / 15.58 GB
+2026-01-22 22:24:30,330 - INFO - ============================== STARTING RUN 5/5 ==============================
+2026-01-22 22:24:31,326 - INFO - Loaded existing teacher model from: criteo_saved_models/teacher_model_mlp_emb8_hidden64_32_4_4.pth
+2026-01-22 22:24:31,326 - INFO - Found optimizer states in checkpoint, will use continuous training strategy
+2026-01-22 22:24:31,400 - INFO - --- Running Stage 1 ---
+2026-01-22 22:24:31,401 - INFO - --- Preparing Representative Sample Set (D_rep) for Stage 1 ---
+2026-01-22 22:24:31,401 - INFO - Creating offline_loader loader with 16 workers
+2026-01-22 22:24:41,102 - INFO - Created dynamic sampling rep_loader with method: biased_sample
+2026-01-22 22:25:50,556 - INFO - Run 5 | Student (after S1) - AUC: 79.89, LogLoss: 0.4585, TrainTime(s): 46.8
+2026-01-22 22:25:50,556 - INFO - --- Running Stage 2: Live Co-evolutionary Alignment ---
+2026-01-22 22:25:50,556 - INFO - 创建ReplayDataset，每次采样409个样本
+2026-01-22 22:25:50,556 - INFO - Creating online_loader loader with 16 workers
+2026-01-22 22:25:51,253 - INFO - Stage 2总步数: 1120
+2026-01-22 22:25:51,253 - INFO - 使用ReplayDataset，每个step抽取409个样本
+2026-01-22 22:27:20,391 - INFO - Run 5 | Student (after S2) - AUC: 80.25, LogLoss: 0.4518, TrainTime(s): 66.7
+2026-01-22 22:27:20,538 - INFO - [MEM] after TSKD run 5 | RSS: 14.48 GB, GPU Used: 1.10 GB / 15.58 GB
+2026-01-22 22:27:20,549 - INFO - ======================================================================
+2026-01-22 22:27:20,549 - INFO - --- DETAILED PERFORMANCE ACROSS ALL RUNS ---
+2026-01-22 22:27:20,602 - INFO -    run  s1_student_auc  s1_student_loss  s1_time  s2_student_auc  s2_student_loss  total_time
+0    1         79.8590           0.4586  47.2088         80.2617           0.4513    113.0860
+1    2         79.8822           0.4601  46.2646         80.2674           0.4510    112.0978
+2    3         79.8369           0.4612  46.6040         80.2626           0.4521    113.0417
+3    4         79.8854           0.4602  46.1888         80.2842           0.4513    112.3198
+4    5         79.8912           0.4585  46.7754         80.2513           0.4518    113.4673
+2026-01-22 22:27:20,602 - INFO - ======================================================================
+2026-01-22 22:27:20,602 - INFO - --- AGGREGATED PERFORMANCE METRICS (Mean ± Std Dev) ---
+2026-01-22 22:27:20,625 - INFO - Metric                     AUC        LogLoss TrainTime(s)
+Student (after S1)  79.87±0.02  0.4597±0.0012     46.6±0.4
+Student (after S2)  80.27±0.01  0.4515±0.0004    112.8±0.6
+2026-01-22 22:27:20,626 - INFO - 79.87±0.02, 0.4597±0.0012, 46.6±0.4, 80.27±0.01, 0.4515±0.0004, 112.8±0.6
+2026-01-22 22:27:20,626 - INFO - ======================================================================
+2026-01-22 22:27:20,626 - INFO - --- TS-KD Framework execution completed ---

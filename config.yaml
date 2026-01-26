@@ -1,0 +1,93 @@
+# TS-KD Framework 配置文件
+# 基础配置参数
+basic:
+  mode: "tskd"  # 运行模式: 'teacher'=仅训练教师模型, 'student'=仅训练学生模型, 'tskd'=完整TSKD框架
+  dataset: "criteo"  # 数据集选择: 'avazu', 'criteo', 'criteo_ctr_full'
+  num_runs: 5  # 实验运行次数，用于结果平均
+  stage2_update_mode: "both"  # 训练模式: 'both'=同时训练学生和教师模型, 'student'=仅训练学生模型
+  log_progress_100: false  # 若为 true，则在 Stage 2 中每100个batch记录一次时间(不含评估)与评估结果
+
+# 数据加载参数
+data:
+  num_workers: 16  # DataLoader工作进程数
+  batch_size: 4096  # 训练和评估的批次大小
+  pin_memory: false
+  prefetch_factor: 2
+  persistent_workers: false
+  # 全量内存模式（Parquet -> DataFrame），仅建议在内存足够时开启。对 criteo_ctr_full 生效。
+  full_in_memory: true
+
+# 教师模型训练参数
+teacher_training:
+  hist: true  # 使用历史数据训练教师模型
+  offline: true  # 使用离线数据训练
+  online: true  # 使用在线数据训练
+  update_teacher_models: true  # 更新并保存历史教师模型
+
+# 模型架构参数
+model_architecture:
+  teacher_arch: "mlp"  # 教师模型架构: 'deepfm', 'dcn', 'mlp', 'widedeep', 'xdeepfm', 'autoint', 'fibi', 'afm', 'nfm'
+  teacher_embedding_dim: 8  # 教师模型嵌入维度
+  hidden_dims_teacher: [64, 32, 4]  # 教师模型隐藏层维度
+  student_arch: "fibi"  # 学生模型架构: 'deepfm', 'dcn', 'mlp', 'widedeep', 'xdeepfm', 'autoint', 'fibi', 'afm', 'nfm'
+  student_embedding_dim: 16  # 学生模型嵌入维度
+  hidden_dims_student: [256, 128, 16]  # 学生模型隐藏层维度
+
+# 学习率参数
+learning_rate:
+  lr_sparse: 0.1  # 稀疏嵌入参数学习率
+  lr_dense: 0.001  # 稠密模型参数学习率
+
+# Stage 1 参数
+stage1:
+  force_retrain_s1: true  # 重新训练Stage 1学生模型
+  s1_dense_epochs: 1  # Stage 1B: 冻结嵌入后的模型蒸馏轮数
+  s1_joint_epochs: 1  # Stage 1C: 嵌入和稠密模型联合训练轮数
+  s1c_sparse_l2 : 0  # Stage 1C中稀疏嵌入L2正则化权重
+  s1a_method: "orthomap"  # ['orthomap', 'relation', 'hint'] Stage 1A方法选择
+  alpha_1b: 0.7  # Stage 1B 蒸馏损失权重（KD vs BCE）
+  alpha_1c: 0.7  # Stage 1C 蒸馏损失权重（KD vs BCE）
+
+# 样本选择参数
+sample_selection:
+  sample_selection: "biased_sample"  # Stage 1代表性样本选择方法: 'random', 'biased_sample', 'temporal', 'combined', 'recent', 'generate', 'all', 'all_shuffle'
+  sample_ratio: 0.1  # Stage 1代表性样本比例
+  target_pos_rate: 0.5  # biased_sample方法的目标正样本率
+
+# Stage 2 参数
+stage2:
+  replay: true  # 在Stage 2中启用重放机制
+  alpha_2: 0.7  # Stage 2中稀疏嵌入蒸馏损失的权重
+  teacher_update_freq: 10  # 教师模型更新频率 (每N个epoch更新一次)
+  replay_ratio: 0.1  # Replay 批比例（相对 batch_size 的比例），例如 0.1 表示 10%
+
+# 蒸馏相关超参数（Hint-KD / RKD）
+distillation:
+  temperature: 4.0   # 蒸馏温度系数（soft targets 平滑温度）
+  use_hint_kd: false  # 是否启用 Hint-KD（在稀疏 embedding 上使用 projection + MSE 对齐）
+  hint_lambda: 1.0    # Hint-KD 损失权重
+  use_rkd: false      # 是否启用 RKD（关系知识蒸馏：distance + angle）
+  rkd_lambda: 1.0     # RKD 损失的整体缩放系数
+  rkd_w_dist: 25.0    # RKD 中 distance 部分的权重
+  rkd_w_angle: 50.0   # RKD 中 angle 部分的权重
+  rkd_max_pairs: 2048  # RKD 计算中使用的最大样本对数量
+  rkd_max_triplets: 2048  # RKD 计算中使用的最大样本三元组数量
+
+# 阶段跳过参数
+skip_stages:
+  skip_s1a: false  # 跳过Stage 1A (稀疏嵌入InfoNCE)
+  skip_s1b: false  # 跳过Stage 1B (稠密模型知识蒸馏)
+  skip_s1c: false  # 跳过Stage 1C (嵌入和稠密模型联合训练)
+  skip_s2: false  # 跳过Stage 2 (模型蒸馏)
+
+# 模型特定参数
+model_specific:
+  num_cross_layers: 3  # DCN模型的交叉层数量
+  num_cin_layers: 3  # xDeepFM模型的CIN层数量
+  num_attention_layers: 3  # AutoInt模型的注意力层数量
+  num_attention_heads: 2  # AutoInt模型的注意力头数量
+
+# 资源限制参数
+resource_limits:
+  max_memory_gb: 28  # 最大内存使用限制 (GB)
+  max_cpu_time_hour: 3  # 最大CPU时间限制 (小时)
